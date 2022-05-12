@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <h2> button decoration 1. rotate button on mouse over </h2>
+
+    <div class="container">
+        <button class="rot_bt">1</button>
+        <button class="rot_bt">2</button>
+        <button class="rot_bt">3</button>
+        <button class="rot_bt">4</button>
+        <button class="rot_bt">5</button>
+        
+    </div>
+
+    <h2> button decoration 2. rotate text on mouse over </h2>
+
+    <div class="container">
+        <button><span class="rot_span">1</span></button>
+        <button><span class="rot_span">2</span></button>
+        <button><span class="rot_span">3</span></button>
+        <button><span class="rot_span">4</span></button>
+        <button><span class="rot_span">5</span></button>
+        
+    </div>
+
+    <h2> button decoration 3. rotate button only on mouse over </h2>
+
+    <div class="container">
+        <div class="rot_div">
+            <span class="no_rot_span">1</span>
+            <button class="new_rot_bt"></button>
+            
+        </div>
+        <div class="rot_div">
+            <span class="no_rot_span">2</span>
+            <button class="new_rot_bt"></button>
+            
+        </div>
+        <div class="rot_div">
+            <span class="no_rot_span">3</span>
+            <button class="new_rot_bt"></button>
+            
+        </div>
+        <div class="rot_div">
+            <span class="no_rot_span">4</span>
+            <button class="new_rot_bt"></button>
+        </div>
+        <div class="rot_div">
+            <span class="no_rot_span">5</span>
+            <button class="new_rot_bt"></button>
+            
+        </div>
+        
+        
+    </div>
+    
+</body>
+<style>
+    * {
+        margin:0;
+        padding:0;
+    }
+
+    h2 {
+        margin-top: 20px;
+        margin-left: 20px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .container {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .container button {
+        background-color: lightskyblue;
+        border: none; 
+        border-radius: 7px;
+        /* button 크기 지정 */
+        width:50px; height: 50px;
+    }
+
+    /* 클릭했을 때 배경색과 글씨색 변경 */
+
+    
+    .container .rot_bt:focus {
+        background-color: rgb(81, 167, 201);
+        color: white;
+        transition-duration: 0.4s;
+    }
+
+    .container .rot_bt:hover {
+        background-color: aqua;
+        transition-duration: 0.4s;
+    }
+
+
+
+    /* 이제 돌리는 것 */
+
+    .container .rot_bt:hover {
+        -ms-transform: rotate(360deg); /* IE 9 */
+        -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */
+        transform: rotate(360deg);
+        transition: 0.3s;
+    }
+
+    .container .rot_span {
+        /* span text에 hover를 받아오기 위해 크기 적용 */
+        display: inline-block;
+        width:inherit;
+        height:inherit;
+
+        /* span text 세로 방향 중앙정렬 */
+        vertical-align: middle; line-height: 50px;
+        
+    }
+
+    .container .rot_span:hover {
+        -ms-transform: rotate(360deg); /* IE 9 */
+        -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */
+        transform: rotate(360deg);
+        transition: 0.3s;
+    }
+
+
+    /* 제일 밑에 꺼 */
+    .container .rot_div{
+        display:inline-block; 
+        position:relative;
+        margin:10px;
+    }
+
+    .container .new_rot_bt {
+        background-color: white;
+        border: 3px solid rgb(60, 179, 227);
+        border-radius: 10px;
+
+        /* 돌았다가 원래대로 돌아오는데 걸리는 시간 */
+        transition: 0.3s;
+    }
+
+
+    /* 여기 부터는 테두리만 있는 버튼 돌리기 */
+
+    .container .new_rot_bt:hover {
+        border-radius: 20px;
+        -ms-transform: rotate(135deg); /* IE 9 */
+        -webkit-transform: rotate(135deg); /* Chrome, Safari, Opera */
+        transform: rotate(135deg);
+        transition: 0.3s;
+    }
+
+    .container .new_rot_bt:focus {
+        border-radius: 30px;
+        background-color: rgb(206, 240, 255);
+
+        transition: 0.3s;
+    }
+
+    .container .no_rot_span {
+        color:rgb(60, 179, 227);
+        font-weight: 700;
+        font-size: 14px;
+
+        position:absolute;
+        top: 18px;
+        left:21px;
+
+        z-index:99;
+        /* transition: 0.3s; */
+    }
+
+</style>
+</html>
